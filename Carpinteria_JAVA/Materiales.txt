@@ -1,0 +1,3 @@
+Madera, 40
+Clavos, 128
+Goma, 250
