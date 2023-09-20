@@ -1,0 +1,34 @@
+------FACTURA No.17------
+Cliente: Lucas
+------Materiales usados------
+Tipo      Cantidad  Precio
+Madera:   45        Q50.00
+Clavos:   54        Q25.00
+Goma:     15        Q25.00
+Total---------------Q300.00
+
+------FACTURA No.21------
+------Admin------
+------Materiales usados------
+Tipo------Cantidad------Precio  
+Madera:      60         Q50.00
+Clavos:      72         Q25.00
+Goma:        20         Q25.00
+Total-------------------Q400.00
+
+------FACTURA No.32------
+------Marcos------
+------Materiales usados------
+Tipo------Cantidad------Precio  
+Madera:      120         Q50.00
+Clavos:      144         Q25.00
+Goma:        40         Q25.00
+Total-------------------Q800.00\n ------FACTURA No.20------
+------Random------
+------Materiales usados------
+Tipo------Cantidad------Precio  
+Madera:      90         Q50.00
+Clavos:      108         Q25.00
+Goma:        30         Q25.00
+Total-------------------Q600.00
+
