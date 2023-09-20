@@ -1,9 +1,9 @@
 package Inicio;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import static java.lang.System.exit;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -13,8 +13,9 @@ import java.io.IOException;
 public class Inicio {
 	public static void main(String[] args) {
 		int Op;
+
 		Scanner Entrada = new Scanner(System.in);
-        //Menu principal
+		// Menu principal
 		System.out.println("Bienvenido que eres???");
 		System.out.println("1) Usuario");
 		System.out.println("2) Administrador ");
@@ -25,15 +26,15 @@ public class Inicio {
 		switch (Op) {
 
 		case 1:
-			//Mostrar opciones de usuario
+			// Mostrar opciones de usuario
 			Usuario();
 			break;
 		case 2:
-			//Mostrar opciones de Administrador
+			// Mostrar opciones de Administrador
 			Admin();
 			break;
-		case 3: 
-			//Salir del programa
+		case 3:
+			// Salir del programa
 			exit(0);
 			break;
 
@@ -42,26 +43,26 @@ public class Inicio {
 
 	private static void Usuario() {
 		String archivoEntrada = "Materiales.txt";
-
+		Random rand = new Random();
 		Scanner Entrada = new Scanner(System.in);
 		String Nom;
-		int Mad, Cla, Gom, Sil, i = 0,Mad2,Cla2,Gom2; 
-		//Datos de uso de materiales
+		int Mad, Cla, Gom, Sil, i = 0, Mad2, Cla2, Gom2, Rand, Rand2, Rand3, Rand4, Total;
+		// Datos de uso de materiales
 		Mad = 15;
 		Cla = 18;
 		Gom = 5;
-		//Menu de usuario
+		// Menu de usuario
 		System.out.println("Ingrese su Nombre");
 		Nom = Entrada.nextLine();
 		System.out.println("Bienvenido " + Nom + " a la fábrica de sillas");
 		System.out.println("Cuantas sillas va a comprar??");
 		Sil = Entrada.nextInt();
-		//Ciclo de repeticion para que ensamble las sillas
+		// Ciclo de repeticion para que ensamble las sillas
 		while (i < Sil) {
 			//
 			int maderaActual = 0, clavosActual = 0, gomaActual = 0;
-            
-			//Uso de archivo txt para sacar los datos 
+
+			// Uso de archivo txt para sacar los datos
 			try {
 				FileReader archivoReader = new FileReader(archivoEntrada);
 				BufferedReader bufferedReader = new BufferedReader(archivoReader);
@@ -85,13 +86,13 @@ public class Inicio {
 			} catch (IOException e) {
 				System.err.println("Error al leer el archivo: " + e.getMessage());
 			}
-            // Verificador de si tiene suficientes materiales para ensamblar la silla
+			// Verificador de si tiene suficientes materiales para ensamblar la silla
 			if (Mad <= maderaActual && Cla <= clavosActual && Gom <= gomaActual) {
-                //resta de materiales del archivo de txt
+				// resta de materiales del archivo de txt
 				maderaActual -= Mad;
 				clavosActual -= Cla;
 				gomaActual -= Gom;
-            //Ingreso de los resultados en el archivo txt
+				// Ingreso de los resultados en el archivo txt
 				try {
 					FileWriter archivoWriter = new FileWriter(archivoEntrada, false);
 					archivoWriter.write("Madera, " + maderaActual + "\n");
@@ -109,18 +110,54 @@ public class Inicio {
 
 			i++;
 		}
-		Mad2=Sil*Mad;
-		Cla2=Sil*Cla;
-		Gom2=Sil*Gom;
-		
-		System.out.println("------FACTURA------");
-		System.out.println("------Materiales usados------");
-		System.out.println("Madera: "+ Mad2 + " Tablas" );
-		System.out.println("Clavos: "+ Cla2  );
-		System.out.println("Goma: "+ Gom2 + " Tablas" );
-		
+		// Contadores de materiales
+		Mad2 = Sil * Mad;
+		Cla2 = Sil * Cla;
+		Gom2 = Sil * Gom;
+		Total = Sil * 100;
+		Rand = rand.nextInt(10);
+		Rand2 = rand.nextInt(10);
+		Rand3 = rand.nextInt(10);
+		Rand4 = rand.nextInt(10);
 
-	}
+		System.out.println("------FACTURA No." + 0 + Rand + Rand2 + Rand3 + Rand4 + "------");
+		System.out.println(" ");
+		System.out.println("------" + Nom + "------");
+		System.out.println("------Materiales usados------");
+		System.out.println("Tipo------Cantidad------Precio  ");
+		System.out.println("Madera:      " + Mad2 + "         Q50.00");
+		System.out.println("Clavos:      " + Cla2 + "         Q25.00");
+		System.out.println("Goma:        " + Gom2 + "         Q25.00");
+		System.out.println("Total-------------------Q" + Total+".00");
+
+		File archivo = new File("Factura.txt");
+		 if (!archivo.exists()) {
+	            try {
+	                archivo.createNewFile();
+	                FileWriter archivoWriter = new FileWriter(archivo, true);
+	                archivoWriter.write("------FACTURA No." + (Rand + Rand2 + Rand3 + Rand4) + "------\n");
+	                archivoWriter.write("Cliente: " + Nom + "\n");
+	                archivoWriter.write("------Materiales usados------\n");
+	                archivoWriter.write("Tipo      Cantidad  Precio\n");
+	                archivoWriter.write("Madera:   " + Mad2 + "        Q50.00\n");
+	                archivoWriter.write("Clavos:   " + Cla2 + "        Q25.00\n");
+	                archivoWriter.write("Goma:     " + Gom2 + "        Q25.00\n");
+	                archivoWriter.write("Total                    Q" + Total + ".00\n");
+
+	                archivoWriter.close(); 
+
+	                System.out.println("Se ha creado el archivo 'Factura.txt'");
+	            } catch (IOException e) {
+	                System.out.println("Ha ocurrido un error al crear el archivo 'Factura.txt'");
+	                e.printStackTrace();
+	                return;
+	            }
+	        } else {
+	            System.out.println("El archivo 'Factura.txt' ya existe.");
+	        }
+		}
+
+	
 
 	private static void Admin() {
 		String Usua;
