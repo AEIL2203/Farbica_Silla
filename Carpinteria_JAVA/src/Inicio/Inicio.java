@@ -106,51 +106,6 @@ public class Inicio {
 					System.out.println("Ha ocurrido un error al guardar los datos en 'Materiales.txt'");
 					e.printStackTrace();
 				}
-				// Contadores de materiales
-				Mad2 = Sil * Mad;
-				Cla2 = Sil * Cla;
-				Gom2 = Sil * Gom;
-				Total = Sil * 100;
-				Rand = rand.nextInt(10);
-				Rand2 = rand.nextInt(10);
-				Rand3 = rand.nextInt(10);
-				Rand4 = rand.nextInt(10);
-
-				System.out.println("------FACTURA No." + 0 + Rand + Rand2 + Rand3 + Rand4 + "------");
-				System.out.println(" ");
-				System.out.println("------" + Nom + "------");
-				System.out.println("------Materiales usados------");
-				System.out.println("Tipo------Cantidad------Precio  ");
-				System.out.println("Madera:      " + Mad2 + "         Q50.00");
-				System.out.println("Clavos:      " + Cla2 + "         Q25.00");
-				System.out.println("Goma:        " + Gom2 + "         Q25.00");
-				System.out.println("Total-------------------Q" + Total+".00");
-
-				File archivo = new File("Factura.txt");
-				 try {
-			            archivo.createNewFile();
-			            FileWriter archivoWriter = new FileWriter(archivo, true);
-			            
-			            archivoWriter.write("------FACTURA No." + (Rand + Rand2 + Rand3 + Rand4) + "------\n");
-			            archivoWriter.write("------" + Nom + "------\n");
-			            archivoWriter.write("------Materiales usados------\n");
-			            archivoWriter.write("Tipo------Cantidad------Precio  \n");
-			            archivoWriter.write("Madera:      " + Mad2 + "         Q50.00\n");
-			            archivoWriter.write("Clavos:      " + Cla2 + "         Q25.00\n");
-			            archivoWriter.write("Goma:        " + Gom2 + "         Q25.00\n");
-			            archivoWriter.write("Total-------------------Q" + Total+".00\n");
-			            archivoWriter.write("\n");
-			            archivoWriter.close();
-
-			            
-			        } catch (IOException e) {
-			            System.out.println("Ha ocurrido un error al crear el archivo 'Factura.txt'");
-			            e.printStackTrace();
-			            return;
-			        }
-				
-				
-				
 				
 				
 				
@@ -160,6 +115,48 @@ public class Inicio {
 
 			i++;
 		}
+		// Contadores de materiales
+		Mad2 = Sil * Mad;
+		Cla2 = Sil * Cla;
+		Gom2 = Sil * Gom;
+		Total = Sil * 100;
+		Rand = rand.nextInt(10);
+		Rand2 = rand.nextInt(10);
+		Rand3 = rand.nextInt(10);
+		Rand4 = rand.nextInt(10);
+
+		System.out.println("------FACTURA No." + 0 + Rand + Rand2 + Rand3 + Rand4 + "------");
+		System.out.println(" ");
+		System.out.println("------" + Nom + "------");
+		System.out.println("------Materiales usados------");
+		System.out.println("Tipo------Cantidad------Precio  ");
+		System.out.println("Madera:      " + Mad2 + "         Q50.00");
+		System.out.println("Clavos:      " + Cla2 + "         Q25.00");
+		System.out.println("Goma:        " + Gom2 + "         Q25.00");
+		System.out.println("Total-------------------Q" + Total+".00");
+
+		File archivo = new File("Factura.txt");
+		 try {
+	            archivo.createNewFile();
+	            FileWriter archivoWriter = new FileWriter(archivo, true);
+	            
+	            archivoWriter.write("------FACTURA No." + (Rand + Rand2 + Rand3 + Rand4) + "------\n");
+	            archivoWriter.write("------" + Nom + "------\n");
+	            archivoWriter.write("------Materiales usados------\n");
+	            archivoWriter.write("Tipo------Cantidad------Precio  \n");
+	            archivoWriter.write("Madera:      " + Mad2 + "         Q50.00\n");
+	            archivoWriter.write("Clavos:      " + Cla2 + "         Q25.00\n");
+	            archivoWriter.write("Goma:        " + Gom2 + "         Q25.00\n");
+	            archivoWriter.write("Total-------------------Q" + Total+".00\n");
+	            archivoWriter.write("\n");
+	            archivoWriter.close();
+
+	            
+	        } catch (IOException e) {
+	            System.out.println("Ha ocurrido un error al crear el archivo 'Factura.txt'");
+	            e.printStackTrace();
+	            return;
+	        }
 		
 		}
 
